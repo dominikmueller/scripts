@@ -1,3 +1,6 @@
+# In Line Replacement of Strings
+# alias ilr=`pwd`/ilr.sh
+
 filepath=`pwd`
 
 if [[ -z "$1" ]]; then
@@ -15,6 +18,7 @@ i=0;
 
 for file in $(grep -l -R $searchstring $filepath)
 do
+#  We don't want to keep the old files
 #  cp $file $file.bak
   sed -e "s/$searchstring/$replacestring/g" $file > tempfile.tmp
   mv tempfile.tmp $file
